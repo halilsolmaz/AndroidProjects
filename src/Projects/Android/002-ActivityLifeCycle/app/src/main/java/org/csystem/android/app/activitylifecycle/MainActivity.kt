@@ -8,7 +8,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+    private fun displayInitMessage(bundle: Bundle?)
+    {
+        val msg = if (bundle == null) "First-Created" else "Re-Created by the system"
+
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
+        displayInitMessage(savedInstanceState)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
